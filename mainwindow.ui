@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1137</width>
+    <height>660</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(72, 72, 72);</string>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <widget class="QScrollArea" name="scrollArea">
+    <property name="geometry">
+     <rect>
+      <x>260</x>
+      <y>90</y>
+      <width>331</width>
+      <height>241</height>
+     </rect>
+    </property>
+    <property name="widgetResizable">
+     <bool>true</bool>
+    </property>
+    <widget class="QWidget" name="scrollAreaWidgetContents">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>329</width>
+       <height>239</height>
+      </rect>
+     </property>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1137</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QMenuBar{
+background-color: rgb(46, 46, 46);
+color: rgb(191,191,191);
+}
+
+QMenuBar::item:selected{
+	background-color: #5374B8;
+}
+
+QMenu{
+	background-color: rgb(46, 46, 46);
+	color: rgb(191,191,191);
+}
+
+QMenu::item:selected{
+	background-color: #5374B8;
+}
+
+
+</string>
+   </property>
+   <widget class="QMenu" name="menu">
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+    <property name="title">
+     <string>Файл</string>
+    </property>
+    <addaction name="action"/>
+    <addaction name="action_2"/>
+    <addaction name="action_3"/>
+    <addaction name="action_4"/>
+    <addaction name="action_5"/>
+   </widget>
+   <widget class="QMenu" name="menu_2">
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(46, 46, 46)</string>
+    </property>
+    <property name="title">
+     <string>Вид</string>
+    </property>
+    <addaction name="action_6"/>
+   </widget>
+   <addaction name="menu"/>
+   <addaction name="menu_2"/>
+  </widget>
+  <widget class="QToolBar" name="mainToolBar">
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>26</width>
+     <height>26</height>
+    </size>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(46, 46, 46)</string>
+   </property>
+   <property name="movable">
+    <bool>false</bool>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>LeftToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+  <action name="action">
+   <property name="text">
+    <string>Создать</string>
+   </property>
+  </action>
+  <action name="action_2">
+   <property name="text">
+    <string>Открыть</string>
+   </property>
+  </action>
+  <action name="action_3">
+   <property name="text">
+    <string>Сохранить</string>
+   </property>
+  </action>
+  <action name="action_4">
+   <property name="text">
+    <string>Сохранить как</string>
+   </property>
+  </action>
+  <action name="action_5">
+   <property name="text">
+    <string>Выйти</string>
+   </property>
+  </action>
+  <action name="action_6">
+   <property name="text">
+    <string>Показать сетку</string>
+   </property>
+  </action>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources/>
+ <connections/>
+</ui>
