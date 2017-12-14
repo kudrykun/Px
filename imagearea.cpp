@@ -4,16 +4,23 @@
 #include <QGraphicsSceneMouseEvent>
 #include <QDebug>
 #include <QGraphicsPixmapItem>
+#include <QAction>
 
 ImageArea::ImageArea()
 {
+    space_pressed = false;
+    drawingModeEnabled = false;
+    erasingModeEnabled = false;
+
     scene = new QGraphicsScene;
+    scene->setBackgroundBrush(QBrush(Qt::red));
     image = new QImage(":/carina-nebula-nasa-esa-hubble.jpg");
     pixmap = QPixmap::fromImage(*image);
     pixmapItem = scene->addPixmap(pixmap);
     this->setScene(scene);
+
     setTransformationAnchor(QGraphicsView::AnchorUnderMouse);
-    space_pressed = false;
+
 }
 
 void ImageArea::wheelEvent(QWheelEvent *event)
@@ -23,19 +30,26 @@ void ImageArea::wheelEvent(QWheelEvent *event)
 
 void ImageArea::mousePressEvent(QMouseEvent *event)
 {
-    if(space_pressed)
+    if(space_pressed)                               //dragging
         setDragMode(QGraphicsView::ScrollHandDrag);
-    else{
-        QPointF point(mapToScene(event->pos()));
-        //scene->addRect(point.x(),point.y(),1,1);
-        image->setPixel(point.x(),point.y(),Qt::transparent);
+    else{                                           //drawing
+        if(drawingModeEnabled){
+            QPointF point(mapToScene(event->pos()));
+            //scene->addRect(point.x(),point.y(),1,1);
+            image->setPixel(point.x(),point.y(),QColor(76,76,76).rgb());
 
-        pixmap = QPixmap::fromImage(*image);
-        pixmapItem->setPixmap(pixmap);
-
-        qDebug() << "draw";
-        qDebug() << point;
-        qDebug() << point.toPoint();
+            pixmap = QPixmap::fromImage(*image);
+            pixmapItem->setPixmap(pixmap);
+        }
+        if(erasingModeEnabled){
+            QPointF point(mapToScene(event->pos()));
+            //scene->addRect(point.x(),point.y(),1,1);
+            image->setPixel(point.x(),point.y(),QColor(255,255,255).rgb());
+            qDebug() << QColor::fromRgb(image->pixel(point.x(),point.y()));
+            qDebug() << QColor::fromRgba(image->pixel(point.x(),point.y()));
+            pixmap = QPixmap::fromImage(*image);
+            pixmapItem->setPixmap(pixmap);
+        }
     }
     QGraphicsView::mousePressEvent(event);
 }
@@ -68,7 +82,14 @@ void ImageArea::keyReleaseEvent(QKeyEvent *event)
     }
 }
 
-void ImageArea::pencil()
+void ImageArea::pencilToggle(bool checked)
 {
-    qDebug() << "ok bro";
+    drawingModeEnabled = checked;
+    qDebug() << "drawing";
+}
+
+void ImageArea::eraserToggle(bool checked)
+{
+    erasingModeEnabled = checked;
+    qDebug() << "erasing";
 }

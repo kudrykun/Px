@@ -21,6 +21,7 @@ private:
     Ui::MainWindow *ui;
     ImageArea *imageArea;
     QAction *pencilAction;
+    QAction *eraserAction;
 
 };
 

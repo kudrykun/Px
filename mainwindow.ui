@@ -91,7 +91,7 @@ QMenu::item:selected{
     </size>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(46, 46, 46)</string>
+    <string notr="true">background-color: rgb(46, 46, 46);</string>
    </property>
    <property name="movable">
     <bool>false</bool>
