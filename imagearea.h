@@ -6,14 +6,18 @@
 #include <QGraphicsView>
 class ImageArea : public QGraphicsView
 {
+    Q_OBJECT
+
 public:
-    ImageArea(QWidget *parent = 0);
+    ImageArea();
 protected:
     void wheelEvent(QWheelEvent *event) override;
     void mousePressEvent(QMouseEvent *event) override;
     void mouseReleaseEvent(QMouseEvent *event) override;
     void keyPressEvent(QKeyEvent *event) override;
     void keyReleaseEvent(QKeyEvent *event) override;
+public slots:
+    void pencil();
 private:
     QGraphicsScene *scene;
     QGraphicsPixmapItem *pixmapItem;

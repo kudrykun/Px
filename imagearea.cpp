@@ -1,6 +1,11 @@
 #include "imagearea.h"
 #include <QWheelEvent>
-ImageArea::ImageArea(QWidget *parent)
+#include <QMouseEvent>
+#include <QGraphicsSceneMouseEvent>
+#include <QDebug>
+#include <QGraphicsPixmapItem>
+
+ImageArea::ImageArea()
 {
     scene = new QGraphicsScene;
     image = new QImage(":/carina-nebula-nasa-esa-hubble.jpg");
@@ -20,7 +25,18 @@ void ImageArea::mousePressEvent(QMouseEvent *event)
 {
     if(space_pressed)
         setDragMode(QGraphicsView::ScrollHandDrag);
+    else{
+        QPointF point(mapToScene(event->pos()));
+        //scene->addRect(point.x(),point.y(),1,1);
+        image->setPixel(point.x(),point.y(),Qt::transparent);
 
+        pixmap = QPixmap::fromImage(*image);
+        pixmapItem->setPixmap(pixmap);
+
+        qDebug() << "draw";
+        qDebug() << point;
+        qDebug() << point.toPoint();
+    }
     QGraphicsView::mousePressEvent(event);
 }
 
@@ -50,4 +66,9 @@ void ImageArea::keyReleaseEvent(QKeyEvent *event)
     default:
         QGraphicsView::keyReleaseEvent(event);
     }
+}
+
+void ImageArea::pencil()
+{
+    qDebug() << "ok bro";
 }

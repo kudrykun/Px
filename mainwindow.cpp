@@ -10,6 +10,8 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     imageArea = new ImageArea();
+    pencilAction = ui->mainToolBar->addAction(QIcon(":/icons/pencil_icon.svg"),"Карандаш",imageArea,SLOT(pencil()));
+    pencilAction->setCheckable(true);
     setCentralWidget(imageArea);
 }
 
