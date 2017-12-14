@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1137</width>
-    <height>660</height>
+    <width>637</width>
+    <height>385</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -20,36 +20,13 @@
    <property name="enabled">
     <bool>true</bool>
    </property>
-   <widget class="QScrollArea" name="scrollArea">
-    <property name="geometry">
-     <rect>
-      <x>260</x>
-      <y>90</y>
-      <width>331</width>
-      <height>241</height>
-     </rect>
-    </property>
-    <property name="widgetResizable">
-     <bool>true</bool>
-    </property>
-    <widget class="QWidget" name="scrollAreaWidgetContents">
-     <property name="geometry">
-      <rect>
-       <x>0</x>
-       <y>0</y>
-       <width>329</width>
-       <height>239</height>
-      </rect>
-     </property>
-    </widget>
-   </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1137</width>
+     <width>637</width>
      <height>21</height>
     </rect>
    </property>

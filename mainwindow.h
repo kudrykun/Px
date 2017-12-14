@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include "scribblearea.h"
+#include "imagearea.h"
 
 namespace Ui {
 class MainWindow;
@@ -18,7 +19,8 @@ public:
 
 private:
     Ui::MainWindow *ui;
-    ScribbleArea *area;
+    ImageArea *imageArea;
+
 };
 
 #endif // MAINWINDOW_H

@@ -26,11 +26,14 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
         main.cpp \
         mainwindow.cpp \
-    scribblearea.cpp
+    imagearea.cpp
 
 HEADERS += \
         mainwindow.h \
-    scribblearea.h
+    imagearea.h
 
 FORMS += \
         mainwindow.ui
+
+RESOURCES += \
+    resources.qrc

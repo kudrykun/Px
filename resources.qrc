@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/">
+        <file>carina-nebula-nasa-esa-hubble.jpg</file>
+    </qresource>
+</RCC>
