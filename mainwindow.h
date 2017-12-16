@@ -16,13 +16,18 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
-
+public slots:
+    void setColor();
+    void getColor();
 private:
     Ui::MainWindow *ui;
+    void createTollBarActions();
     ImageArea *imageArea;
     QAction *pencilAction;
     QAction *eraserAction;
-
+    QAction *changeColor;
+    QAction *eyeDropper;
+    QPixmap *colorPixmap;
 };
 
 #endif // MAINWINDOW_H

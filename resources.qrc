@@ -6,5 +6,6 @@
         <file>pencil_icon.svg</file>
         <file>pencil_icon.png</file>
         <file>eraser_icon.png</file>
+        <file>eyedropper_icon.png</file>
     </qresource>
 </RCC>

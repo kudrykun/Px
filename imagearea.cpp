@@ -11,6 +11,9 @@ ImageArea::ImageArea()
     space_pressed = false;
     drawingModeEnabled = false;
     erasingModeEnabled = false;
+    eyedropperModeEnabled = false;
+    pencil_color = new QColor(255,255,255);
+
 
     scene = new QGraphicsScene;
     scene->setBackgroundBrush(QBrush(Qt::red));
@@ -21,6 +24,16 @@ ImageArea::ImageArea()
 
     setTransformationAnchor(QGraphicsView::AnchorUnderMouse);
 
+}
+
+QColor ImageArea::current_color()
+{
+    return *pencil_color;
+}
+
+void ImageArea::set_current_color(QColor color)
+{
+    *pencil_color = color;
 }
 
 void ImageArea::wheelEvent(QWheelEvent *event)
@@ -36,7 +49,7 @@ void ImageArea::mousePressEvent(QMouseEvent *event)
         if(drawingModeEnabled){
             QPointF point(mapToScene(event->pos()));
             //scene->addRect(point.x(),point.y(),1,1);
-            image->setPixel(point.x(),point.y(),QColor(76,76,76).rgb());
+            image->setPixel(point.x(),point.y(),pencil_color->rgb());
 
             pixmap = QPixmap::fromImage(*image);
             pixmapItem->setPixmap(pixmap);
@@ -49,6 +62,11 @@ void ImageArea::mousePressEvent(QMouseEvent *event)
             qDebug() << QColor::fromRgba(image->pixel(point.x(),point.y()));
             pixmap = QPixmap::fromImage(*image);
             pixmapItem->setPixmap(pixmap);
+        }
+        if(eyedropperModeEnabled){
+            QPointF point(mapToScene(event->pos()));
+            qDebug() << image->pixelColor(point.x(),point.y());
+            *pencil_color = image->pixelColor(point.toPoint());
         }
     }
     QGraphicsView::mousePressEvent(event);
@@ -93,3 +111,9 @@ void ImageArea::eraserToggle(bool checked)
     erasingModeEnabled = checked;
     qDebug() << "erasing";
 }
+
+void ImageArea::eyedropperToggle(bool checked)
+{
+    eyedropperModeEnabled = checked;
+}
+
